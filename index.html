@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>14 de Febrero 💘</title>
+  <style>
+    :root{
+      --bg1:#0b0a14;
+      --bg2:#140b1d;
+      --card:#120c1b;
+      --text:#fff7fb;
+      --muted:rgba(255,255,255,.75);
+      --pink:#ff4d8d;
+      --rose:#ff8fb9;
+      --gold:#ffd3a6;
+      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --border: rgba(255,255,255,.14);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      overflow-x:hidden;
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(255,77,141,.20), transparent 60%),
+        radial-gradient(900px 500px at 85% 15%, rgba(255,143,185,.18), transparent 60%),
+        radial-gradient(900px 700px at 50% 110%, rgba(255,211,166,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+    }
+
+    /* Corazones de fondo */
+    .hearts{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.55;
+      filter: blur(.2px);
+    }
+    .heart{
+      position:absolute;
+      width:14px;height:14px;
+      transform: rotate(45deg);
+      background: rgba(255,77,141,.35);
+      animation: floatUp linear infinite;
+      border-radius: 3px;
+    }
+    .heart::before,.heart::after{
+      content:"";
+      position:absolute;
+      width:14px;height:14px;
+      background: inherit;
+      border-radius: 50%;
+    }
+    .heart::before{ left:-7px; top:0; }
+    .heart::after{ left:0; top:-7px; }
+
+    @keyframes floatUp{
+      from{ transform: translateY(20vh) rotate(45deg); }
+      to{ transform: translateY(-120vh) rotate(45deg); }
+    }
+
+    /* Layout */
+    .wrap{
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      padding: clamp(18px, 4vw, 40px);
+    }
+
+    .card{
+      width:min(920px, 100%);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      backdrop-filter: blur(10px);
+    }
+
+    .topGlow{
+      position:absolute;
+      inset:-2px -2px auto -2px;
+      height: 140px;
+      background: radial-gradient(400px 140px at 30% 40%, rgba(255,77,141,.22), transparent 70%),
+                  radial-gradient(380px 140px at 70% 30%, rgba(255,143,185,.18), transparent 70%);
+      pointer-events:none;
+    }
+
+    .content{
+      padding: clamp(22px, 4vw, 42px);
+      display:grid;
+      gap: 22px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.18);
+      width: fit-content;
+      letter-spacing: .2px;
+      color: var(--muted);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, var(--gold), var(--pink));
+      box-shadow: 0 0 18px rgba(255,77,141,.45);
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(28px, 4.2vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+      text-wrap: balance;
+    }
+
+    .highlight{
+      background: linear-gradient(90deg, var(--rose), var(--gold));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .message{
+      margin: 0;
+      font-size: clamp(16px, 2.1vw, 20px);
+      line-height: 1.6;
+      color: rgba(255,255,255,.88);
+      max-width: 70ch;
+    }
+
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+      margin: 6px 0;
+    }
+
+    .footer{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      padding-top: 6px;
+      color: rgba(255,255,255,.70);
+      font-size: 14px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.14);
+    }
+
+    .spark{
+      width:14px;height:14px;
+      background: linear-gradient(135deg, var(--gold), var(--rose));
+      clip-path: polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%);
+      box-shadow: 0 0 20px rgba(255,211,166,.25);
+    }
+
+    /* Botón opcional (no necesario, pero bonito) */
+    .btn{
+      border:0;
+      cursor:pointer;
+      padding: 12px 16px;
+      border-radius: 14px;
+      color: #1a0c14;
+      background: linear-gradient(90deg, var(--rose), var(--gold));
+      font-weight: 700;
+      letter-spacing:.2px;
+      box-shadow: 0 12px 30px rgba(255,77,141,.20);
+      transition: transform .12s ease, filter .12s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
+    .btn:active{ transform: translateY(0px); filter: brightness(.98); }
+
+    /* Pequeña animación en el texto */
+    .fadeIn{
+      animation: fade .9s ease both;
+    }
+    @keyframes fade{
+      from{ opacity:0; transform: translateY(10px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    /* Responsivo */
+    @media (max-width:520px){
+      .footer{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- corazones flotando -->
+  <div class="hearts" aria-hidden="true">
+    <span class="heart" style="left:8%;  top:95%; animation-duration: 12s; transform:scale(.9) rotate(45deg);"></span>
+    <span class="heart" style="left:22%; top:110%; animation-duration: 16s; transform:scale(1.2) rotate(45deg); background:rgba(255,143,185,.32)"></span>
+    <span class="heart" style="left:35%; top:105%; animation-duration: 14s; transform:scale(.8) rotate(45deg);"></span>
+    <span class="heart" style="left:48%; top:120%; animation-duration: 18s; transform:scale(1.35) rotate(45deg); background:rgba(255,211,166,.26)"></span>
+    <span class="heart" style="left:62%; top:108%; animation-duration: 15s; transform:scale(1.05) rotate(45deg);"></span>
+    <span class="heart" style="left:76%; top:100%; animation-duration: 13s; transform:scale(.95) rotate(45deg); background:rgba(255,143,185,.30)"></span>
+    <span class="heart" style="left:90%; top:118%; animation-duration: 19s; transform:scale(1.4) rotate(45deg); background:rgba(255,77,141,.24)"></span>
+  </div>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="topGlow"></div>
+
+      <div class="content fadeIn">
+        <div class="badge">
+          <span class="dot"></span>
+          <span>14 de febrero • solo para ti</span>
+        </div>
+
+        <h1>
+          <span class="highlight">Mi amor</span>, tengo una cosita para decirte 💘
+        </h1>
+
+        <p class="message">
+          <strong>Lista para el viaje, me muero de ganas de compartir un momento diferente contigo</strong>.
+          <br><br>
+          Quiero que sea un día nuestro: sin apuros, sin ruido… solo tú y yo. ✨
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="footer">
+          <div class="pill">
+            <span class="spark"></span>
+            <span>Con cariño, hoy y siempre</span>
+          </div>
+
+          <!-- Botón opcional (no hace falta, pero queda lindo) -->
+          <button class="btn" onclick="alert('Te amo 💖')">Toca aquí</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
